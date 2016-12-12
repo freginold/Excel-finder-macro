@@ -1,26 +1,29 @@
 Sub finder()
 
 ' finder Macro
+' v1.1
     
     ' if cell is currently yellow, change it to turqoise (8)
     ' only counts number of columns based on first row
     ' only searches columns over to ZZ -- if need to go farther, change cellRange
     
-    Dim word, numRows, cellRange, newColor, prevColor, firstAddress, c, NotBold
+    Dim word, numRows, cellRange, newColor, prevColor, firstAddress, c, NotBold, numFound, loc, locStr
     
     word = InputBox("Word to Find?", "")
     
     If word = "" Then MsgBox ("Nothing to find"): Exit Sub
     
+    numFound = 0
     numRows = ActiveSheet.Range("A1048576").End(xlUp).Row
     cellRange = "a1:z" & numRows
     
-    With Worksheets(1).Range(cellRange)
+    With ActiveSheet.Range(cellRange)
         Set c = .Find(word)
         If Not c Is Nothing Then
             ' found an occurrence
             firstAddress = c.Address
             Do
+                numFound = numFound + 1
                 newColor = 6
                 prevColor = Range(c.Address).Interior.ColorIndex
                 If prevColor = 6 Then newColor = 8
@@ -32,11 +35,20 @@ Sub finder()
                     NotBold = True
                 End If
                 Range(c.Address).Select
-                MsgBox (c.Address)
+                loc = Split(c.Address, "$")
+                locStr = ""
+                For Each x In loc
+                    locStr = locStr + x
+                Next
+                MsgBox (numFound & ":  " & locStr)
                 Range(c.Address).Interior.ColorIndex = prevColor
                 If Not NotBold Then Range(c.Address).Font.Bold = False
                 Set c = .FindNext(c)
             Loop While Not c Is Nothing And c.Address <> firstAddress
         End If
     End With
+    
+    If numFound = 0 Then MsgBox ("""" & word & """ not found in this sheet.")
+    
 End Sub
+
