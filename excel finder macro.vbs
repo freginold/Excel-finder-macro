@@ -1,13 +1,13 @@
 Sub finder()
 
 ' finder Macro
-' v1.1
+' v1.2
     
     ' if cell is currently yellow, change it to turqoise (8)
     ' only counts number of columns based on first row
     ' only searches columns over to ZZ -- if need to go farther, change cellRange
     
-    Dim word, numRows, cellRange, newColor, prevColor, firstAddress, c, NotBold, numFound, loc, locStr
+    Dim word, numRows, cellRange, newColor, prevColor, firstAddress, c, NotBold, numFound, loc, locStr, FindNext
     
     word = InputBox("Word to Find?", "")
     
@@ -40,9 +40,18 @@ Sub finder()
                 For Each x In loc
                     locStr = locStr + x
                 Next
-                MsgBox (numFound & ":  " & locStr)
+                locStr = "        #" & numFound & ":  " & locStr
+                If .FindNext(c).Address <> firstAddress Then
+                    ' if there's still another match to show
+                    FindNext = MsgBox(locStr & vbCrLf & vbCrLf & "        Find Next?", 4)
+                    ' Yes = 6, No = 7
+                Else
+                    ' this is the last match
+                    MsgBox locStr, 0
+                End If
                 Range(c.Address).Interior.ColorIndex = prevColor
                 If Not NotBold Then Range(c.Address).Font.Bold = False
+                If FindNext = 7 Then Exit Sub
                 Set c = .FindNext(c)
             Loop While Not c Is Nothing And c.Address <> firstAddress
         End If
@@ -51,4 +60,3 @@ Sub finder()
     If numFound = 0 Then MsgBox ("""" & word & """ not found in this sheet.")
     
 End Sub
-
