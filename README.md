@@ -11,6 +11,6 @@ The macro currently searches all cells within a range from the farthest row that
 
 To use this macro, load it into a macro-enabled Excel worksheet and assign it a shortcut key.  You can use `<CTRL>` `<F>` to replace the built-in Find function, or a different combination (i.e. `<CTRL>` `<SHIFT>` `<F>`).
 
-### Excel versions tested in:
+### Tested successfully in:
 - Excel 2010 / Windows 7
 - Excel 2016 / Windows 10
