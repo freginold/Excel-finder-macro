@@ -1,7 +1,7 @@
 Sub finder()
 
 ' finder Macro
-' v1.2
+' v1.2.1
     
     ' if cell is currently yellow, change it to turqoise (8)
     ' only counts number of columns based on first row
@@ -15,7 +15,7 @@ Sub finder()
     
     numFound = 0
     numRows = ActiveSheet.Range("A1048576").End(xlUp).Row
-    cellRange = "a1:z" & numRows
+    cellRange = "a1:zz" & numRows
     
     With ActiveSheet.Range(cellRange)
         Set c = .Find(word)
