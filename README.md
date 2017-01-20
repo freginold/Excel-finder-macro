@@ -13,4 +13,5 @@ To use this macro, load it into a macro-enabled Excel worksheet and assign it a 
 
 ### Tested successfully in:
 - Excel 2010 / Windows 7
+- Excel 2013 / Windows 7
 - Excel 2016 / Windows 10
