@@ -9,7 +9,7 @@ If there are multiple matches, the message box will give you the option to stop 
 
 The macro currently searches all cells within a range from the farthest row that has a value in column A, all the way over to column ZZ.  It can be made to search farther over, or search rows based on a different column, by changing the `cellRange` variable.  The macro is case-insensitive and will find a character or partial string inside other text.
 
-To use this macro, load it into a macro-enabled Excel worksheet and assign it a shortcut key.  You can use `<CTRL>` `<F>` to replace the built-in Find function, or a different combination (i.e. `<CTRL>` `<SHIFT>` `<F>`).
+To use this macro, load it into a macro-enabled Excel worksheet and assign it a shortcut key.  You can use <kbd>CTRL</kbd> <kbd>F</kbd> to replace the built-in Find function, or any other combination (i.e. <kbd>CTRL</kbd> <kbd>SHIFT</kbd> <kbd>F</kbd>).
 
 ### Tested successfully in:
 - Excel 2010 / Windows 7
