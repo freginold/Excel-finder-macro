@@ -1,4 +1,7 @@
 # Excel-finder-macro
+
+_**Update:** Microsoft has [announced plans](https://techcommunity.microsoft.com/blog/windows-itpro-blog/vbscript-deprecation-timelines-and-next-steps/4148301) to gradually deprecate VBScript in Windows. There is no exact sunset date yet, but once it occurs this macro will not function._
+
 This macro can replace Excel's native Find capability.  It prompts the user for a word/string/number/character to search the active worksheet for, and when it finds the first occurrence, it does the following:
 - highlights the cell in yellow (or turqoise, if it's already yellow)
 - bolds the text (if it's not already bold)
